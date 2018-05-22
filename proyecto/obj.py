@@ -73,10 +73,14 @@ class Texture(object):
                 self.pixels[y].append(color(r,g,b))
         image.close()
 
-    def get_color(self, tx, ty):
+    def get_color(self, tx, ty, intensity=1):
         x = int(tx * self.width)
         y = int(ty * self.height)
-        return self.pixels[y][x]
+        # return self.pixels[y][x]
+        try:
+            return bytes(map(lambda b: round(b*intensity) if b*intensity > 0 else 0, self.pixels[y][x]))
+        except:
+            pass  # what causes this
 
 
 
