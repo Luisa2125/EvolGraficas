@@ -44,9 +44,9 @@ class Obj(object):
 
 
 r = Render(800,600)
-model = Obj("./Bigmax_White_OBJ.obj")
+model = Obj("./Luigi_obj.obj")
 co = 1
-#print(model.vfaces)
+#print("lala ",model.vfaces)
 for face in model.vfaces:
     #print(co)
     co+=1
@@ -59,8 +59,8 @@ for face in model.vfaces:
         v1 = model.vertices[f1 - 1]
         v2 = model.vertices[f2 - 1]
 
-        scaleX, scaleY = (5,5)
-        translateX, translateY = (80,2)
+        scaleX, scaleY = (4,4)
+        translateX, translateY = (130,2)
 
         x1 = round((v1[0] + translateX) * scaleX); 
         y1 = round((v1[1] + translateY) * scaleY); 
