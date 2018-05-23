@@ -250,7 +250,7 @@ class Render(object):
           tx = tA.x * w + tB.x * v + tC.x * u
           ty = tA.y * w + tB.y * v + tC.y * u
           
-          color = texture.get_color(tx, ty)
+          color = texture.get_color(tx, ty,intensity)
 
         z = A.z * w + B.z * v + C.z * u
 
@@ -300,7 +300,7 @@ class Render(object):
             grey = round(255 * intensity)
             if grey < 0:
               continue
-            self.triangle(a, b, c, color=color(grey, grey, grey))
+            self.triangle(a, b, c, color=color(grey, grey, grey),texture = texture,texture_coords=(tA, tB, tC), intensity=intensity)
           else:
             t1 = face[0][1] - 1
             t2 = face[1][1] - 1
@@ -335,8 +335,8 @@ class Render(object):
             grey = round(255 * intensity)
             if grey < 0:
               continue
-            self.triangle(A, B, C, color(grey, grey, grey))
-            self.triangle(A, C, D, color(grey, grey, grey))            
+            self.triangle(A, B, C, color(grey, grey, grey),texture = texture,texture_coords=(tA, tB, tC), intensity=intensity)
+            self.triangle(A, C, D, color(grey, grey, grey),texture=texture,texture_coords=(tA, tB, tC), intensity=intensity)            
           else:
             t1 = face[0][1] - 1
             t2 = face[1][1] - 1

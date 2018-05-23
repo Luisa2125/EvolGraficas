@@ -20,7 +20,7 @@ class Obj(object):
             if line:
                 
                 try:
-                    prefix, value = line.split('  ')
+                    prefix, value = line.split('  ',1)
                     
                 except:
                     prefix,value = '',''
@@ -45,7 +45,7 @@ class Obj(object):
                        #print('faces',faces)
                         to_app.append(faces)
 
-                        self.vfaces.append(to_app)
+                    self.vfaces.append(to_app)
         #print(self.tvertices)
 
 class Texture(object):
